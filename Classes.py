@@ -8,10 +8,11 @@ class Character:
         self._health=health
         self._level=level
         self.type=type
-        self.attackpower=attackPower
+        self.attackPower=attackPower
 
     def attack(self,attack,Enemy):
             Enemy.take_damage(self.attackPower)
+            print(attack," ")
 
     def take_damage(self,amount):
         self._health-=amount
