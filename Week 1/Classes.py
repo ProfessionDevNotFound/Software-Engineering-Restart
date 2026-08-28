@@ -83,7 +83,7 @@ M1 = Mage("Sung Jin Woo")
 W1 = Warrior("Monkey D. Luffy")
 S1 = Swordsman("Ichigo Kurosaki")
 A1 = Archer("Archer")
-
+attackflag=False
 characters = [M1, W1, S1, A1]
 
 player = M1
@@ -94,10 +94,13 @@ print("Choose your attack:")
 for key, attack in player.attacks.items():
     print(f"{key}. {attack['name']} - {attack['damage']} damage")
 
-try:
-    choice = input("Choose attack: ")
-    player.attack(choice, enemy)
-    enemy.display_status()
-except KeyError:
-    print("Input not valid Try Again")
+while(not attackflag):
+    try:
+        choice = input("Choose attack: ")
+        player.attack(choice, enemy)
+        enemy.display_status()
+        attackflag=True
+        
+    except KeyError:
+        print("Input not valid Try Again")
 
